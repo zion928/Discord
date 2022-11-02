@@ -10,7 +10,7 @@ from date import *
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix='!',intents=intents) # 명령어 시작은 !
+bot = commands.Bot(command_prefix='!', intents=intents)  # 명령어 시작은 !
 
 
 @bot.event
@@ -20,12 +20,29 @@ async def on_ready():
     print(bot.user.id)
     print('-------')
 
-@bot.command()
-async def ping(ctx): # !ping 입력시
-    await ctx.send('pong') # ctx = context 호출
 
 @bot.command()
-async def test(ctx, *, arg): # arg = argument 매개변수
+async def ping(ctx):  # !ping 입력시
+    await ctx.send('pong')  # ctx = context 호출
+
+
+@bot.command()
+async def test(ctx, *, arg):  # arg = argument 매개변수
     await ctx.send(arg)
+
+
+@bot.command()
+async def help(ctx):
+    embed = discord.Embed(
+        title="타이틀에 넣을 내용",
+        description="설명에 넣을 내용",
+        color="0x62c1cc"
+    )
+    embed.add_field(
+        name="필드의 이름",
+        value="필드의 값"
+    )
+    embed.set_footer(text="푸터에 넣을 내용")
+
 
 bot.run(TOKEN)
