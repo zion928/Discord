@@ -164,6 +164,8 @@ async def recode(ctx):
                         thumbnail = flextier
                     else:
                         thumbnail = solotier
+                    print("Summoner's tier is "+thumbnail)
+                    print(f"https://github.com/zion928/Discord/blob/main/Ranked-emblems/Emblem_{thumbnail}.png?raw=true")
                     embed = discord.Embed(
                         title="Summoner recode search", description="", color=0x5CD1E5)
                     embed.add_field(name=f"Ranked Solo : {record['Personal/Duo Rank']['tier']} {record['Personal/Duo Rank']['rank']}",
@@ -173,7 +175,7 @@ async def recode(ctx):
                     embed.add_field(
                         name=f"Most Used Champion : {mastery['championname']}", value=f"Proficiency Level : {mastery['championlevel']}.Lv / Champion Point : {mastery['championpoint']}pt")
                     embed.set_thumbnail(
-                        url=f"https://github.com/zion928/Discord/tree/main/ranked-emblems/Emblems_{thumbnail}.png?raw=true")
+                        url=f"https://github.com/zion928/Discord/blob/main/Ranked-emblems/Emblem_{thumbnail}.png?raw=true")
                     embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
                                         icon_url='https://i.imgur.com/ltiu4g8.png')
                     await ctx.send("Summoner \"" + playerNickname + "\"\'s recode", embed=embed)
@@ -186,7 +188,7 @@ async def recode(ctx):
                     embed.add_field(
                         name="Flex 5:5 Rank : Unranked", value="Unranked", inline=False)
                     embed.set_thumbnail(
-                        url="https://github.com/zion928/Discord/tree/main/ranked-emblems/Emblems_DEFAULT.png?raw=true")
+                        url="https://github.com/zion928/Discord/blob/main/Ranked-emblems/Emblem_DEFAULT.png?raw=true")
                     embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
                                         icon_url='https://i.imgur.com/ltiu4g8.png')
                     await ctx.send("Summoner \"" + playerNickname + "\"\'s recode", embed=embed)
@@ -203,7 +205,7 @@ async def recode(ctx):
                     embed.add_field(
                         name=f"Most Used Champion : {mastery['championname']}", value=f"Proficiency Level : {mastery['championlevel']}.Lv / Champion Point : {mastery['championpoint']}pt")
                     embed.set_thumbnail(
-                        url=f"https://github.com/zion928/Discord/tree/main/ranked-emblems/Emblems_{record['Flex 5:5 Rank']['tier']}.png?raw=true")
+                        url=f"https://github.com/zion928/Discord/blob/main/Ranked-emblems/Emblem_{record['Flex 5:5 Rank']['tier']}.png?raw=true")
                     embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
                                         icon_url='https://i.imgur.com/ltiu4g8.png')
                     await ctx.send("Summoner \"" + playerNickname + "\"\'s recode", embed=embed)
@@ -220,7 +222,7 @@ async def recode(ctx):
                     embed.add_field(
                         name=f"Most Used Champion : {mastery['championname']}", value=f"Proficiency Level : {mastery['championlevel']}.Lv / Champion Point : {mastery['championpoint']}pt")
                     embed.set_thumbnail(
-                        url=f"https://github.com/zion928/Discord/tree/main/ranked-emblems/Emblems_{record['Personal/Duo Rank']['tier']}.png?raw=true")
+                        url=f"https://github.com/zion928/Discord/blob/main/Ranked-emblems/Emblem_{record['Personal/Duo Rank']['tier']}.png?raw=true")
                     embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
                                         icon_url='https://i.imgur.com/ltiu4g8.png')
                     await ctx.send("Summoner \"" + playerNickname + "\"\'s recode", embed=embed)
@@ -359,7 +361,7 @@ async def most(ctx):
 #                         embed.add_field(
 #                             name=f"Most Used Champion : {mastery['championname']}", value=f"Proficiency Level : {mastery['championlevel']}.Lv / Champion Point : {mastery['championpoint']}pt")
 #                         embed.set_thumbnail(
-#                             url=f"https://github.com/zion928/Discord/tree/main/ranked-emblems/Emblems_{thumbnail}.png?raw=true")
+#                             url=f"https://github.com/zion928/Discord/blob/main/Ranked-emblems/Emblem_{thumbnail}.png?raw=true")
 #                         embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
 #                                          icon_url='https://i.imgur.com/ltiu4g8.png')
 #                         await ctx.send("Summoner \"" + playerNickname + "\"\'s recode", embed=embed)
@@ -372,7 +374,7 @@ async def most(ctx):
 #                         embed.add_field(
 #                             name="Flex 5:5 Rank : Unranked", value="Unranked", inline=False)
 #                         embed.set_thumbnail(
-#                             url="https://github.com/zion928/Discord/tree/main/ranked-emblems/Emblems_DEFAULT.png?raw=true")
+#                             url="https://github.com/zion928/Discord/blob/main/Ranked-emblems/Emblem_DEFAULT.png?raw=true")
 #                         embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
 #                                          icon_url='https://i.imgur.com/ltiu4g8.png')
 #                         await ctx.send("Summoner \"" + playerNickname + "\"\'s recode", embed=embed)
@@ -389,7 +391,7 @@ async def most(ctx):
 #                         embed.add_field(
 #                             name=f"Most Used Champion : {mastery['championname']}", value=f"Proficiency Level : {mastery['championlevel']}.Lv / Champion Point : {mastery['championpoint']}pt")
 #                         embed.set_thumbnail(
-#                             url=f"https://github.com/zion928/Discord/tree/main/ranked-emblems/Emblems_{record['Flex 5:5 Rank']['tier']}.png?raw=true")
+#                             url=f"https://github.com/zion928/Discord/blob/main/Ranked-emblems/Emblem_{record['Flex 5:5 Rank']['tier']}.png?raw=true")
 #                         embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
 #                                          icon_url='https://i.imgur.com/ltiu4g8.png')
 #                         await ctx.send("Summoner \"" + playerNickname + "\"\'s recode", embed=embed)
@@ -406,7 +408,7 @@ async def most(ctx):
 #                         embed.add_field(
 #                             name=f"Most Used Champion : {mastery['championname']}", value=f"Proficiency Level : {mastery['championlevel']}.Lv / Champion Point : {mastery['championpoint']}pt")
 #                         embed.set_thumbnail(
-#                             url=f"https://github.com/zion928/Discord/tree/main/ranked-emblems/Emblems_{record['Personal/Duo Rank']['tier']}.png?raw=true")
+#                             url=f"https://github.com/zion928/Discord/blob/main/Ranked-emblems/Emblem_{record['Personal/Duo Rank']['tier']}.png?raw=true")
 #                         embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
 #                                          icon_url='https://i.imgur.com/ltiu4g8.png')
 #                         await ctx.send("Summoner \"" + playerNickname + "\"\'s recode", embed=embed)
