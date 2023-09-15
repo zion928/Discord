@@ -38,10 +38,11 @@ tierScore = {
     'SILVER': 3,
     'GOLD': 4,
     'PLATINUM': 5,
-    'DIAMOND': 6,
-    'MASTER': 7,
-    'GRANDMASTER': 8,
-    'CHALLENGER': 9
+    'EMERALD': 6,
+    'DIAMOND': 7,
+    'MASTER': 8,
+    'GRANDMASTER': 9,
+    'CHALLENGER': 10
 }
 
 def tierCompare(solorank, flexrank):
@@ -121,8 +122,9 @@ async def recode(ctx):
         else:
             playerNickname = ' '.join((ctx.message.content).split(' ')[1:])
             # Return false if summoner not exist
-            getPersonalRecordBox = apiCall.getPersonalGameRecord(
-                playerNickname)
+            getPersonalRecordBox = apiCall.getPersonalGameRecord(playerNickname)
+            main_position, sub_positions = apiCall.analyze_main_and_sub_positions(playerNickname)
+            
             if not getPersonalRecordBox:
                 embed = discord.Embed(
                     title="Non-existent summoner", description="", color=0x5CD1E5)
@@ -162,6 +164,8 @@ async def recode(ctx):
                         tcolor = 0xCD8837
                     elif thumbnail == "PLATINUM":
                         tcolor = 0x4E9996
+                    elif thumbnail == "EMERALD":
+                        tcolor = 0x008D62
                     elif thumbnail == "DIAMOND":
                         tcolor = 0x576BCE
                     elif thumbnail == "MASTER":
@@ -183,6 +187,11 @@ async def recode(ctx):
                         url=f"https://github.com/zion928/Ranked_Emblems/blob/master/Emblem_{thumbnail}.png?raw=true")
                     embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
                                         icon_url='https://i.imgur.com/ltiu4g8.png')
+                    
+                    embed.add_field(name="주 라인", value=main_position, inline=True)
+                    embed.add_field(name="부 라인1", value=sub_positions[0] if len(sub_positions) > 0 else 'N/A', inline=True)
+                    embed.add_field(name="부 라인2", value=sub_positions[1] if len(sub_positions) > 1 else 'N/A', inline=True)
+
                     await ctx.send("Summoner " + playerNickname + "\'s recode", embed=embed)
 
                 elif len(record) == 0:
@@ -230,6 +239,7 @@ async def recode(ctx):
                         url=f"https://github.com/zion928/Ranked_Emblems/blob/master/Emblem_{record['Personal/Duo Rank']['tier']}.png?raw=true")
                     embed.set_footer(text='Data by Official Riot API : https://developer.riotgames.com/',
                                         icon_url='https://i.imgur.com/ltiu4g8.png')
+                    
                     await ctx.send("Summoner " + playerNickname + "\'s recode", embed=embed)
     except BaseException as e:
         print(e)
@@ -257,8 +267,8 @@ async def most(ctx):
             await ctx.send("Summoner name not entered!", embed=embed)
         else:
             playerNickname = ' '.join((ctx.message.content).split(' ')[1:])
-            getMasteryBox = apiCall.getPersonalChampionMasteries(
-                playerNickname)
+            getMasteryBox = apiCall.getPersonalChampionMasteries(playerNickname)
+
             keys = list(getMasteryBox.keys())
             if not getMasteryBox:
                 embed = discord.Embed(
